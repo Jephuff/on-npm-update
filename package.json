@@ -1,6 +1,6 @@
 {
   "name": "on-npm-update",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "concurrent-couch-follower": "^1.3.0"
+    "concurrent-couch-follower": "^1.3.0",
+    "latest-version": "^3.1.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.10.2"
   }
 }
