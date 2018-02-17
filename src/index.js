@@ -36,8 +36,23 @@ latestVersion(packageName).then(function(version) {
 
   function onChange(data, done) {
     if (data.doc.name === packageName) {
-      console.log(data.doc.name, data.doc['dist-tags'].latest);
-      childProcess.exec(command, done);
+      const latest = data.doc['dist-tags'].latest;
+
+      console.log(
+        packageName,
+        'updated. current version',
+        currentVersion,
+        'latest version',
+        latest,
+      );
+      if (latest !== currentVersion) {
+        currentVersion === latest;
+        childProcess.exec(command, function(err, output) {
+          console.log(output);
+          if (err) console.error(err);
+          done();
+        });
+      }
     }
 
     done();
