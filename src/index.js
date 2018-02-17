@@ -32,7 +32,7 @@ const configOptions = {
 };
 
 latestVersion(packageName).then(function(version) {
-  const currentVersion = version;
+  let currentVersion = version;
 
   function onChange(data, done) {
     if (data.doc.name === packageName) {
