@@ -1,6 +1,7 @@
 const changes = require('concurrent-couch-follower');
 const latestVersion = require('latest-version');
 const minimist = require('minimist');
+const childProcess = require('child_process');
 
 var { p: packageName, command } = minimist(process.argv.slice(2), {
   string: ['package-name', 'command'],
@@ -36,6 +37,7 @@ latestVersion(packageName).then(function(version) {
   function onChange(data, done) {
     if (data.doc.name === packageName) {
       console.log(data.doc.name, data.doc['dist-tags'].latest);
+      childProcess.exec(command, done);
     }
 
     done();
