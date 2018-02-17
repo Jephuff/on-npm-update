@@ -46,7 +46,7 @@ latestVersion(packageName).then(function(version) {
         latest,
       );
       if (latest !== currentVersion) {
-        currentVersion === latest;
+        currentVersion = latest;
         childProcess.exec(command, function(err, output) {
           console.log(output);
           if (err) console.error(err);
